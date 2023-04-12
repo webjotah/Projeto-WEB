@@ -153,6 +153,15 @@ img{
     .header{
         padding-inline: 5vh;
     }
+    
+    .header a{
+        font-size: 12px;
+    }
+
+    .header h1{
+        font-size: 22px;
+    }
+
     .container .image{
         display: none;
     }
