@@ -118,14 +118,20 @@
     transform: rotate(-45deg) translate(35px, 35px);
 }
 
+body, html {
+    overflow: hidden;
+}
+
 .menu-responsive{
     background-color: #28292A;
     display: none;
     flex-direction: column;
     height: 87vh;
     justify-content: space-evenly;
-    transform: translateX(100%);
     transition: .5s all;
+    overflow: hidden;
+    left: 100%;
+    position: relative;
 }
 
 .menu-responsive ul{
@@ -155,8 +161,7 @@
 }
 
 .menu-toggle{
-    transform: translateX(0);
-
+    left: 0;
 }
 
 
@@ -255,10 +260,9 @@ img{
     }
     .menu-btn, .menu-responsive{
         display: flex;
-    }
-
-    
+    }    
 }
+
 @media (max-width: 800px){
     .header{
         padding-inline: 5vh;
