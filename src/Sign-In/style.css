@@ -17,6 +17,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 1.7rem 10vh;
+    position: absolute;
+    top: 0;
+    z-index: 3;
+    width: 100vw;
 }
 
 .header ul{
@@ -65,9 +69,108 @@
     text-shadow: 0px 0px 5px black;
 }
 
+.menu-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    display: none;
+    margin-bottom: 26px;
+}
+
+.menu-btn-burger{
+    width: 50px;
+    height: 4px;
+    background: var(--violet);
+    border-radius: 4px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn-burger::before,
+.menu-btn-burger::after{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background: var(--violet);
+    border-radius: 4px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn-burger::before{
+    transform: translateY(-14px);
+}
+
+.menu-btn-burger::after{
+    transform: translateY(14px);
+}
+
+.menu-btn.open .menu-btn-burger{
+    transform: translateX(-50px);
+    background: transparent;
+}
+
+.menu-btn.open .menu-btn-burger::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn-burger::after{
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+body, html {
+    overflow: hidden;
+}
+
+.menu-responsive{
+    background-color: #28292A;
+    display: none;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-evenly;
+    transition: .5s all;
+    overflow: hidden;
+    left: 100%;
+    position: relative;
+}
+
+.menu-responsive ul{
+    height: 87vh;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.menu-responsive li{
+    transition: .2s all;
+}
+
+.menu-responsive a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.menu-responsive li:hover{
+    transform: scale(1.1);
+}
+
+.menu-toggle{
+    left: 0;
+}
+
 body{
     background-color: #28292A;
-    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
     background-image: repeating-radial-gradient( circle at 0 0, transparent 0, #28292A 10px ), repeating-linear-gradient( #8528ff55, #8528ff );
 }
 
@@ -78,6 +181,7 @@ body{
     transform: translate(-50%, -50%);
     display: flex;
     width: 20rem;
+    z-index: -2;
 }
 
 h1{
@@ -154,6 +258,8 @@ svg{
     width: 100%;
     height: 100vh;
     background-image: linear-gradient(0deg, transparent, rgba(0, 0, 0, 0.835));
+    position: relative;
+    z-index: 2;
 }
 
 .footer{
@@ -169,9 +275,18 @@ svg{
     background-color: #28292A;
 }
 
+
+
+@media (max-width: 600px){
+    .menu{
+        display: none;
+    }
+    .menu-btn, .menu-responsive{
+        display: flex;
+    }
+}
+
 @media (max-width: 800px){
-
-
     .header{
         padding-inline: 5vh;
     }
@@ -179,21 +294,5 @@ svg{
     svg{
         display: block;
         fill: aliceblue;
-    }
-
-    input[type="checkbox"]{
-        display: list-item;
-        z-index: 5;
-        cursor: pointer;
-        height: 25px;
-        width: 25px;
-    }
-
-    .header input[type="checkbox"]:checked ~ .menu-responsive{
-        transform: translateX(50%);
-    }
-
-    .container{
-        width: 60vw;
     }
 }
