@@ -11,6 +11,12 @@
 
 <body>
     <div class="bg-gradient">
+        <div class="menu-responsive">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../Sign-In/index.php">Sign In</a></li>
+            </ul>
+        </div>
         <header class="header" id="header">
             <div class="logo">
                 <h1><span>CINE</span>SHARE</h1>
@@ -18,8 +24,12 @@
             <div class="menu">
                 <ul>
                     <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../Sign-In/index.html" class="signup">Sign In</a></li>
+                    <li><a href="../Sign-In/index.php" class="signup">Sign In</a></li>
                 </ul>
+            </div>
+            <div class="menu-btn" onclick="change()">
+                <div class="menu-btn-burger">
+                </div>
             </div>
         </header>
         <div class="container">
@@ -34,6 +44,7 @@
                         <label>Senha: </label>
                         <input type="password" name="senha">
                     </div>
+                    
                     <button type="submit">Entrar</button>
                 </form>
             </div>
@@ -42,6 +53,7 @@
             <p>Feito por: João Vitor R. do Nascimento</p>
         </footer>
     </div>
+    <script src="../JS/toggleMenu.js"></script>
 </body>
 
 </html>
