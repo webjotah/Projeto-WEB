@@ -11,6 +11,12 @@
 
 <body>
     <div class="bg-gradient">
+        <div class="menu-responsive">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../Sign-Up/index.php">Sign Up</a></li>
+            </ul>
+        </div>
         <header class="header" id="header">
             <div class="logo">
                 <h1><span>CINE</span>SHARE</h1>
@@ -18,21 +24,25 @@
             <div class="menu">
                 <ul>
                     <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../Sign-Up/index.html" class="signup">Sign Up</a></li>
+                    <li><a href="../Sign-Up/index.php" class="signup">Sign Up</a></li>
                 </ul>
+            </div>
+            <div class="menu-btn" onclick="change()">
+                <div class="menu-btn-burger">
+                </div>
             </div>
         </header>
         <div class="container">
             <div class="form">
                 <h1> Sign In</h1>
-                <form>
+                <form method="POST">
                     <div class="name all">
                         <label>Nome: </label>
                         <input type="text" name="name">
                     </div>
                     <div class="username all">
                         <label>Username: </label>
-                        <input type="text" name="username">
+                        <input type="text" name="username" id="username">
                     </div>
                     <div class="email all">
                         <label>Email: </label>
@@ -40,8 +50,20 @@
                     </div>
                     <div class="senha all">
                         <label>Senha: </label>
-                        <input type="password" name="senha">
+                        <input type="password" name="senha" id="password">
                     </div>
+                    <?php 
+                        if( ! empty($_POST)){
+                            $senha = $_POST['senha'];
+                            $username = $_POST['username'];
+
+                            if(strlen($senha) < 8){
+                                echo '<div class="erroForm"> <span> Sua senha deve conter no mínimo 8 dígitos </p></div>';
+                            } else if (strlen($username) < 3) {
+                                echo '<div class="erroForm"> <span> Seu username deve conter no mínimo 3 caracteres </p></div>';
+                            }
+                        }
+                    ?>
                     <button type="submit">Criar Conta</button>
                 </form>
             </div>
@@ -50,6 +72,7 @@
             <p>Feito por: João Vitor R. do Nascimento</p>
         </footer>
     </div>
+    <script src="../JS/toggleMenu.js"></script>
 </body>
 
 </html>
